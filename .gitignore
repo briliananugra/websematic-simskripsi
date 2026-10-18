@@ -1,0 +1,4 @@
+# File sementara & rahasia
+.vscode/
+*.log
+config/database.php
