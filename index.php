@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/config/app.php';
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/functions.php';
 
 $alur = [
     ['bi-file-earmark-arrow-up', 'Pengajuan'],
@@ -49,7 +50,7 @@ $fitur = [
                 <li class="nav-item"><a class="nav-link" href="#footer">Kontak</a></li>
                 <li class="nav-item">
                     <?php if (sudah_login()): ?>
-                        <a class="btn btn-primary btn-sm px-3" href="<?= BASE_URL ?>/pages/dashboard.php">Dashboard</a>
+                        <a class="btn btn-primary btn-sm px-3" href="<?= url_dashboard() ?>">Dashboard</a>
                     <?php else: ?>
                         <a class="btn btn-primary btn-sm px-3" href="<?= BASE_URL ?>/auth/login.php">Login</a>
                     <?php endif; ?>

@@ -6,7 +6,7 @@ require_once __DIR__ . '/../includes/auth.php';
 
 // Kalau sudah login, tidak perlu melihat form lagi
 if (sudah_login()) {
-    header('Location: ' . BASE_URL . '/pages/dashboard.php');
+    header('Location: ' . url_dashboard());
     exit;
 }
 
@@ -27,9 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nama']    = $user['nama'];
         $_SESSION['role']    = $user['role'];
 
-        // Sementara semua role ke dashboard yang sama.
-        // Di Checkpoint 7, mahasiswa akan diarahkan ke dashboard-nya sendiri.
-        header('Location: ' . BASE_URL . '/pages/dashboard.php');
+        // Tiap role diarahkan ke dashboard-nya sendiri
+        header('Location: ' . url_dashboard());
         exit;
     }
     $error = 'Username atau password salah.';

@@ -11,18 +11,23 @@ $activeMenu = $activeMenu ?? '';
 // Data pengguna asli dari session
 $currentUser = ['nama' => $_SESSION['nama'], 'role' => ucfirst($_SESSION['role'])];
 
-// Daftar menu sidebar: [kunci, label, ikon, alamat]
-$menu = [
-    ['dashboard', 'Dashboard',        'bi-speedometer2',  '/pages/dashboard.php'],
-    ['proposal',  'Proposal',         'bi-file-earmark-text', '/pages/proposal.php'],
-    ['bimbingan', 'Bimbingan',        'bi-chat-left-text', '/pages/bimbingan.php'],
-    ['seminar',   'Seminar',          'bi-easel',         '#'],
-    ['sidang',    'Sidang',           'bi-mortarboard',   '#'],
-    ['mahasiswa', 'Mahasiswa',        'bi-people',        '#'],
-    ['dosen',     'Dosen Pembimbing', 'bi-person-badge',  '#'],
-    ['jadwal',    'Jadwal',           'bi-calendar-event','#'],
-    ['laporan',   'Laporan',          'bi-bar-chart',     '#'],
+// Daftar menu sidebar: [kunci, label, ikon, alamat, role yang boleh melihat]
+$roleMenu = $_SESSION['role'];
+$staf     = ['admin', 'kaprodi', 'dosen'];
+$semuaMenu = [
+    ['dashboard', 'Dashboard',        'bi-speedometer2',      $roleMenu === 'mahasiswa' ? '/pages/dashboard_mahasiswa.php' : '/pages/dashboard.php', ['admin', 'kaprodi', 'dosen', 'mahasiswa']],
+    ['proposal',  'Proposal',         'bi-file-earmark-text', '/pages/proposal.php',       $staf],
+    ['proposal',  'Proposal Saya',    'bi-file-earmark-text', '/pages/proposal_saya.php',  ['mahasiswa']],
+    ['bimbingan', 'Bimbingan',        'bi-chat-left-text',    '/pages/bimbingan.php',      $staf],
+    ['seminar',   'Seminar',          'bi-easel',             '#',                         $staf],
+    ['sidang',    'Sidang',           'bi-mortarboard',       '#',                         $staf],
+    ['mahasiswa', 'Mahasiswa',        'bi-people',            '#',                         $staf],
+    ['dosen',     'Dosen Pembimbing', 'bi-person-badge',      '#',                         $staf],
+    ['jadwal',    'Jadwal',           'bi-calendar-event',    '#',                         $staf],
+    ['laporan',   'Laporan',          'bi-bar-chart',         '#',                         $staf],
 ];
+// Sisakan hanya menu yang boleh dilihat role ini
+$menu = array_filter($semuaMenu, fn($m) => in_array($roleMenu, $m[4], true));
 ?>
 <!DOCTYPE html>
 <html lang="id">

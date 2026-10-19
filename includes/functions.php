@@ -84,3 +84,9 @@ function nama_file_tampil($nama) {
     $pos = strpos($nama, '_');
     return $pos !== false ? substr($nama, $pos + 1) : $nama;
 }
+
+// Alamat dashboard sesuai role yang sedang login
+function url_dashboard() {
+    $mhs = ($_SESSION['role'] ?? '') === 'mahasiswa';
+    return BASE_URL . ($mhs ? '/pages/dashboard_mahasiswa.php' : '/pages/dashboard.php');
+}
