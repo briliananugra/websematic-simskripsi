@@ -8,7 +8,7 @@ body { background: #f4f6fb; font-family: 'Segoe UI', system-ui, sans-serif; }
     display: flex; align-items: center; gap: 10px;
     padding: 18px 20px; font-weight: 700; line-height: 1.1;
 }
-.sidebar-brand i { font-size: 2rem; color: #f5c518; }
+.sidebar-brand img { width: 40px; height: 40px; object-fit: contain; }
 .sidebar-brand small { font-weight: 400; opacity: .7; }
 .sidebar-menu { padding: 10px; }
 .sidebar-menu a {

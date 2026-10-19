@@ -1,0 +1,41 @@
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f6fb; }
+
+/* ===== Landing ===== */
+.hero {
+    padding: 90px 0 110px;
+    background: linear-gradient(120deg, #eaf1ff 0%, #ffffff 60%);
+    /* Kalau punya foto gedung kampus, simpan di assets/img/gedung.jpg lalu ganti baris di atas dengan:
+       background: linear-gradient(90deg, rgba(255,255,255,.95) 35%, rgba(255,255,255,.4)),
+                   url('../img/gedung.jpg') center/cover; */
+}
+.fitur-wrap { margin-top: -55px; position: relative; }
+.fitur-card {
+    background: #fff; border-radius: 10px; padding: 18px 10px;
+    text-align: center; font-size: .85rem; font-weight: 600;
+    box-shadow: 0 4px 14px rgba(27, 42, 65, .1); height: 100%;
+}
+.fitur-card i { font-size: 1.9rem; color: #1d6ff2; display: block; margin-bottom: 6px; }
+.alur-ikon {
+    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto;
+    background: #1d6ff2; color: #fff; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* ===== Login ===== */
+.login-page {
+    min-height: 100vh; display: flex;
+    align-items: center; justify-content: center;
+    background: linear-gradient(120deg, #eaf1ff, #f4f6fb);
+    padding: 16px;
+}
+.login-card {
+    background: #fff; width: 100%; max-width: 420px;
+    border-radius: 14px; padding: 28px;
+    box-shadow: 0 8px 30px rgba(27, 42, 65, .12);
+}
+.login-logo { height: 80px; }
+.info-box {
+    background: #eef4ff; border-radius: 8px;
+    padding: 12px 14px; font-size: .85rem;
+}
+.info-box td { padding: 1px 6px 1px 0; }

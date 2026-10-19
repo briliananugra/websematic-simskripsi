@@ -2,12 +2,14 @@
 require_once __DIR__ . '/../config/app.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/auth.php';
+wajib_login(); // semua halaman yang memakai header otomatis terkunci
 
 $pageTitle  = $pageTitle  ?? 'SIMSKRIPSI';
 $activeMenu = $activeMenu ?? '';
 
-// SEMENTARA: data pengguna masih contoh. Di Checkpoint 3 diganti data login asli.
-$currentUser = ['nama' => 'Administrator', 'role' => 'Admin'];
+// Data pengguna asli dari session
+$currentUser = ['nama' => $_SESSION['nama'], 'role' => ucfirst($_SESSION['role'])];
 
 // Daftar menu sidebar: [kunci, label, ikon, alamat]
 $menu = [
@@ -38,7 +40,7 @@ $menu = [
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <i class="bi bi-mortarboard-fill"></i>
+            <img src="<?= BASE_URL ?>/assets/img/logo_umb.png" alt="Logo UMB">
             <span>SIMSKRIPSI<br><small>UMB</small></span>
         </div>
         <nav class="sidebar-menu">
@@ -61,6 +63,9 @@ $menu = [
                     <small class="text-muted"><?= e($currentUser['role']) ?></small>
                 </div>
                 <i class="bi bi-person-circle fs-2 text-secondary"></i>
+                <a href="<?= BASE_URL ?>/auth/logout.php" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-box-arrow-right"></i> Keluar
+                </a>
             </div>
         </header>
 
