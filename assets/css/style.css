@@ -85,3 +85,10 @@ body { background: #f4f6fb; font-family: 'Segoe UI', system-ui, sans-serif; }
 /* Tabel */
 .tabel-simple th { font-size: .8rem; color: #6b7686; font-weight: 600; border-bottom-width: 1px; }
 .tabel-simple td { font-size: .85rem; vertical-align: middle; }
+
+/* ===== Tombol aksi kecil di tabel ===== */
+.btn-aksi {
+    width: 30px; height: 30px; padding: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 6px; font-size: .85rem;
+}
