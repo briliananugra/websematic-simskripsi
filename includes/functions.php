@@ -18,3 +18,8 @@ function badge_status($status) {
     $kelas = $map[$status] ?? 'secondary';
     return '<span class="badge badge-' . $kelas . '">' . e(ucfirst($status)) . '</span>';
 }
+
+// Mengubah 2026-10-10 menjadi 10-10-2026
+function tgl($tanggal) {
+    return $tanggal ? date('d-m-Y', strtotime($tanggal)) : '-';
+}

@@ -40,3 +40,48 @@ body { background: #f4f6fb; font-family: 'Segoe UI', system-ui, sans-serif; }
 
 /* Layar kecil: sidebar disembunyikan dulu */
 @media (max-width: 768px) { .sidebar { display: none; } }
+
+/* ===== Dashboard ===== */
+.card-box {
+    background: #fff; border-radius: 10px; padding: 18px;
+    box-shadow: 0 2px 10px rgba(27, 42, 65, .06); height: 100%;
+}
+.card-box h6 { font-weight: 700; margin-bottom: 14px; }
+
+.stat-card { display: flex; align-items: center; gap: 14px; }
+.stat-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: #fff; flex-shrink: 0;
+}
+.stat-card .angka { font-size: 1.7rem; font-weight: 700; line-height: 1; }
+.stat-card .label { font-size: .8rem; color: #6b7686; }
+.bg-biru   { background: #1d6ff2; }
+.bg-hijau  { background: #22a559; }
+.bg-kuning { background: #f5a623; }
+.bg-merah  { background: #e5484d; }
+
+/* Donut */
+.donut-wrap { position: relative; width: 170px; height: 170px; flex-shrink: 0; }
+.donut-tengah {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; pointer-events: none;
+}
+.donut-tengah b { font-size: 1.6rem; line-height: 1; }
+.donut-tengah small { color: #6b7686; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: .85rem; margin-bottom: 4px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+.legend-item .jml { margin-left: auto; font-weight: 600; padding-left: 20px; }
+
+/* Aktivitas */
+.aktivitas { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #eef0f5; font-size: .85rem; }
+.aktivitas:last-child { border-bottom: 0; }
+.aktivitas .dot {
+    width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+    background: #eaf1ff; color: #1d6ff2;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* Tabel */
+.tabel-simple th { font-size: .8rem; color: #6b7686; font-weight: 600; border-bottom-width: 1px; }
+.tabel-simple td { font-size: .85rem; vertical-align: middle; }
