@@ -58,3 +58,29 @@ function csrf_cek() {
         die('Permintaan tidak valid (token CSRF salah).');
     }
 }
+
+// ---------- Hak akses proposal & bimbingan ----------
+// $p adalah satu baris proposal (butuh kolom mahasiswa_id dan dosen_id)
+function proposal_boleh_dilihat(array $p) {
+    $role = $_SESSION['role'] ?? '';
+    if (in_array($role, ['admin', 'kaprodi', 'dosen'], true)) return true;
+    return $role === 'mahasiswa' && (int)$p['mahasiswa_id'] === (int)$_SESSION['user_id'];
+}
+function bimbingan_boleh_tambah(array $p) {
+    $role = $_SESSION['role'] ?? '';
+    if (in_array($role, ['admin', 'kaprodi'], true)) return true;
+    if ($role === 'dosen')     return (int)$p['dosen_id']     === (int)$_SESSION['user_id'];
+    if ($role === 'mahasiswa') return (int)$p['mahasiswa_id'] === (int)$_SESSION['user_id'];
+    return false;
+}
+function bimbingan_boleh_hapus(array $p) {
+    $role = $_SESSION['role'] ?? '';
+    if (in_array($role, ['admin', 'kaprodi'], true)) return true;
+    return $role === 'dosen' && (int)$p['dosen_id'] === (int)$_SESSION['user_id'];
+}
+
+// "a1b2c3d4e5f6_laporan.pdf" -> "laporan.pdf" (awalan acak disembunyikan)
+function nama_file_tampil($nama) {
+    $pos = strpos($nama, '_');
+    return $pos !== false ? substr($nama, $pos + 1) : $nama;
+}

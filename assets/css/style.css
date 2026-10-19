@@ -92,3 +92,23 @@ body { background: #f4f6fb; font-family: 'Segoe UI', system-ui, sans-serif; }
     display: inline-flex; align-items: center; justify-content: center;
     border-radius: 6px; font-size: .85rem;
 }
+
+/* ===== Detail proposal ===== */
+.info-tabel td { padding: 3px 0; font-size: .88rem; vertical-align: top; }
+.info-tabel td:first-child { width: 130px; color: #6b7686; }
+
+.timeline-v { list-style: none; padding: 0; margin: 0; }
+.timeline-v li { display: flex; gap: 10px; padding-bottom: 14px; position: relative; font-size: .88rem; }
+.timeline-v li:not(:last-child)::before {
+    content: ''; position: absolute; left: 10px; top: 22px; bottom: 0;
+    width: 2px; background: #dfe4ee;
+}
+.tl-dot {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    background: #dfe4ee; color: #fff; font-size: .8rem;
+}
+.tl-done .tl-dot   { background: #22a559; }
+.tl-now .tl-dot    { background: #1d6ff2; }
+.tl-reject .tl-dot { background: #e5484d; }
+.tl-wait           { color: #9aa4b5; }
