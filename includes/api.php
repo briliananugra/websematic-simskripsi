@@ -30,10 +30,9 @@ function api_hanya_get() {
     }
 }
 
-// Boleh masuk lewat sesi login ATAU Basic Auth (username:password)
+// Basic Auth (kalau dikirim) SELALU didahulukan dari sesi login browser
 function api_wajib_login() {
     global $pdo;
-    if (sudah_login()) return;
 
     $user = $_SERVER['PHP_AUTH_USER'] ?? null;
     $pass = $_SERVER['PHP_AUTH_PW'] ?? null;
@@ -48,15 +47,21 @@ function api_wajib_login() {
     }
 
     if ($user !== null) {
+        // Ada kredensial: hanya ini yang dipakai. Salah = 401, tidak boleh jatuh ke sesi.
         $st = $pdo->prepare("SELECT id, nama, role, password FROM users WHERE username = ?");
         $st->execute([$user]);
         $u = $st->fetch();
         if ($u && password_verify((string)$pass, $u['password'])) {
-            $_SESSION['user_id'] = $u['id'];
-            $_SESSION['nama']    = $u['nama'];
-            $_SESSION['role']    = $u['role'];
+            session_write_close(); // tutup sesi: perubahan di bawah TIDAK tersimpan ke server
+            $_SESSION = [
+                'user_id' => $u['id'],
+                'nama'    => $u['nama'],
+                'role'    => $u['role'],
+            ];
             return;
         }
+    } elseif (sudah_login()) {
+        return; // tanpa Basic Auth: pakai sesi login browser
     }
 
     header('WWW-Authenticate: Basic realm="SIMSKRIPSI API"');
