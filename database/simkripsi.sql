@@ -1,6 +1,6 @@
 -- SIMSKRIPSI: struktur database
 -- Catatan: database dibuat manual lewat tool (bukan lewat file ini),
--- supaya file inisimskripsisimskripsisimskripsi juga bisa di-import ke hosting InfinityFree nanti.
+-- supaya file ini juga bisa di-import ke hosting InfinityFree nanti.
 
 CREATE TABLE prodi (
   id INT AUTO_INCREMENT PRIMARY KEY,

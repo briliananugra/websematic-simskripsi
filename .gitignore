@@ -2,4 +2,7 @@
 .vscode/
 *.log
 config/database.php
-uploads/
+
+# Isi uploads jangan ikut, tapi .htaccess penjaganya harus ikut
+uploads/*
+!uploads/.htaccess

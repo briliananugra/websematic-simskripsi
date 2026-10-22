@@ -1,0 +1,4 @@
+# Teruskan header Authorization ke PHP (dibutuhkan Basic Auth pada API)
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

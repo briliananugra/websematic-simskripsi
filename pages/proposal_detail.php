@@ -57,7 +57,7 @@ $bisaTambah = bimbingan_boleh_tambah($p);
 $bisaHapus  = bimbingan_boleh_hapus($p);
 $bisaEdit   = in_array($_SESSION['role'], ['admin', 'kaprodi'], true);
 $urlKembali = $_SESSION['role'] === 'mahasiswa'
-    ? BASE_URL . '/pages/dashboard_mahasiswa.php'   // dibuat di CP7
+    ? BASE_URL . '/pages/dashboard_mahasiswa.php'
     : BASE_URL . '/pages/proposal.php';
 
 $pageTitle  = 'Detail Proposal';
