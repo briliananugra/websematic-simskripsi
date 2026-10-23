@@ -3,10 +3,8 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f6fb; }
 /* ===== Landing ===== */
 .hero {
     padding: 90px 0 110px;
-    background: linear-gradient(120deg, #eaf1ff 0%, #ffffff 60%);
-    /* Kalau punya foto gedung kampus, simpan di assets/img/gedung.jpg lalu ganti baris di atas dengan:
-       background: linear-gradient(90deg, rgba(255,255,255,.95) 35%, rgba(255,255,255,.4)),
-                   url('../img/gedung.jpg') center/cover; */
+    background: linear-gradient(90deg, rgba(255,255,255,.95) 35%, rgba(255,255,255,0) 75%),
+                url('../img/gedung.jpg') center/cover;
 }
 .fitur-wrap { margin-top: -55px; position: relative; }
 .fitur-card {
